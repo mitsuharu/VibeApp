@@ -1,18 +1,8 @@
-# BoothAssistantApp
+# ViewApp
 
-- OpenAI API + ゆめみオープンハンドブック MCP を利用したアプリ
-- カンファレンスのブースなどにおけるAIアシスタントを想定しています
-
-https://github.com/user-attachments/assets/0b63bb2c-c2ef-487a-b1a7-6c1be8e41bac
+- React Native + Expo で作る VibeApp です
 
 ## Get started
-
-0. Add `.env.local` with your OpenAI API Key
-	-  It does not commit `.env.local`, excludes by gitignore.
-	
-   ```shell
-   OPENAI_API_KEY=sk-...
-   ```
 
 1. Install dependencies
 
