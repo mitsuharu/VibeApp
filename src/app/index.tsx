@@ -1,45 +1,85 @@
 import { styleType } from '@mitsuharu/react-native-components-plus'
-import { useState } from 'react'
+import { router } from 'expo-router'
 import {
+  Alert,
   StyleSheet,
   Text,
+  TextInput,
   type TextStyle,
+  TouchableOpacity,
   useColorScheme,
   View,
   type ViewStyle,
 } from 'react-native'
 import { makeStyles } from 'react-native-swag-styles'
 import { COLOR } from '@/constants/Colors'
+import { useAuth } from '@/hooks/AuthContext'
 
-type Props = {
-  text: String
-}
+type Props = Record<string, never>
 
 type ComponentProps = Props & {
-  text: String
+  username: string
+  onUsernameChange: (username: string) => void
+  onNext: () => void
 }
 
 const Component: React.FC<ComponentProps> = ({
-  text
+  username,
+  onUsernameChange,
+  onNext,
 }) => {
   const styles = useStyles()
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
+      <View style={styles.contentContainer}>
+        <Text style={styles.title}>同僚からひと笑いを貰わないとログインできない認証システム</Text>
+        <Text style={styles.subtitle}>ユーザーネームを入力してください</Text>
+
+        <TextInput
+          style={styles.input}
+          value={username}
+          onChangeText={onUsernameChange}
+          placeholder='ユーザーネーム'
+          placeholderTextColor={COLOR(useColorScheme()).TEXT.SECONDARY}
+          autoCapitalize='none'
+          autoCorrect={false}
+        />
+
+        <TouchableOpacity
+          style={[styles.button, !username && styles.buttonDisabled]}
+          onPress={onNext}
+          disabled={!username}
+        >
+          <Text
+            style={[styles.buttonText, !username && styles.buttonTextDisabled]}
+          >
+            次へ
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
 
 const Container: React.FC<Props> = (props) => {
-  const [text, setText] = useState<string>('hello world')
+  const { authState, setUsername, startChallenge } = useAuth()
+
+  const handleNext = () => {
+    if (!authState.username.trim()) {
+      Alert.alert('エラー', 'ユーザーネームを入力してください')
+      return
+    }
+    startChallenge()
+    router.push('/challenge')
+  }
 
   return (
     <Component
       {...props}
-      {...{
-        text
-      }}
+      username={authState.username}
+      onUsernameChange={setUsername}
+      onNext={handleNext}
     />
   )
 }
@@ -48,12 +88,56 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
   const styles = StyleSheet.create({
     container: styleType<ViewStyle>({
       flex: 1,
-      padding: 16,
-      backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
+      backgroundColor: COLOR(colorScheme).BACKGROUND.PRIMARY,
     }),
-    text: styleType<TextStyle>({
+    contentContainer: styleType<ViewStyle>({
+      flex: 1,
+      justifyContent: 'center',
+      padding: 32,
+      maxWidth: 400,
+      alignSelf: 'center',
+      width: '100%',
+    }),
+    title: styleType<TextStyle>({
+      fontSize: 24,
+      fontWeight: 'bold',
       color: COLOR(colorScheme).TEXT.PRIMARY,
+      textAlign: 'center',
+      marginBottom: 8,
+      lineHeight: 32,
+    }),
+    subtitle: styleType<TextStyle>({
       fontSize: 16,
+      color: COLOR(colorScheme).TEXT.SECONDARY,
+      textAlign: 'center',
+      marginBottom: 32,
+    }),
+    input: styleType<TextStyle>({
+      borderWidth: 1,
+      borderColor: COLOR(colorScheme).BORDER.PRIMARY,
+      borderRadius: 8,
+      padding: 16,
+      fontSize: 16,
+      color: COLOR(colorScheme).TEXT.PRIMARY,
+      backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
+      marginBottom: 24,
+    }),
+    button: styleType<ViewStyle>({
+      backgroundColor: COLOR(colorScheme).ACCENT.PRIMARY,
+      borderRadius: 8,
+      padding: 16,
+      alignItems: 'center',
+    }),
+    buttonDisabled: styleType<ViewStyle>({
+      backgroundColor: COLOR(colorScheme).BACKGROUND.TERTIARY,
+    }),
+    buttonText: styleType<TextStyle>({
+      color: COLOR(colorScheme).TEXT.ON_ACCENT,
+      fontSize: 16,
+      fontWeight: '600',
+    }),
+    buttonTextDisabled: styleType<TextStyle>({
+      color: COLOR(colorScheme).TEXT.SECONDARY,
     }),
   })
   return styles

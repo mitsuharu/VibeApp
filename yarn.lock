@@ -9731,9 +9731,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vibe-app@workspace:.":
+"vibe-app-0728@workspace:.":
   version: 0.0.0-use.local
-  resolution: "vibe-app@workspace:."
+  resolution: "vibe-app-0728@workspace:."
   dependencies:
     "@anthropic-ai/claude-code": "npm:^1.0.55"
     "@babel/core": "npm:^7.25.2"

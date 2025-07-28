@@ -6,10 +6,12 @@ type ColorType = {
     PRIMARY: string
     SECONDARY: string
     EMPHASIZE: string
+    ON_ACCENT: string
   }
   BACKGROUND: {
     PRIMARY: string
     SECONDARY: string
+    TERTIARY: string
     EMPHASIZE: string
     INPUT: string
     HELP: string
@@ -22,6 +24,9 @@ type ColorType = {
     DESTRUCTIVE: string
     QUESTION: string
     ANSWER: string
+  }
+  ACCENT: {
+    PRIMARY: string
   }
   FUNCTIONAL: {
     SUCCESS: string
@@ -37,10 +42,12 @@ const defaultColor: ColorType = {
     PRIMARY: 'black',
     SECONDARY: '#4F5A6B',
     EMPHASIZE: '#ffffff',
+    ON_ACCENT: '#ffffff',
   },
   BACKGROUND: {
     PRIMARY: '#FFFFFF',
     SECONDARY: '#F2F2F2',
+    TERTIARY: '#E5E5E5',
     EMPHASIZE: '#007AFF',
     INPUT: '#fafafa',
     HELP: '#f0f8ff',
@@ -53,6 +60,9 @@ const defaultColor: ColorType = {
     DESTRUCTIVE: '#fecaca',
     QUESTION: '#007AFF',
     ANSWER: '#4CAF50',
+  },
+  ACCENT: {
+    PRIMARY: '#007AFF',
   },
   FUNCTIONAL: {
     SUCCESS: '#4CAF50',
@@ -68,10 +78,12 @@ const darkColor: ColorType = {
     PRIMARY: 'white',
     SECONDARY: '#E2E8F1',
     EMPHASIZE: '#ffffff',
+    ON_ACCENT: '#ffffff',
   },
   BACKGROUND: {
     PRIMARY: '#171F2A',
     SECONDARY: '#11161D',
+    TERTIARY: '#2D3748',
     EMPHASIZE: '#007AFF',
     INPUT: '#1f2937',
     HELP: '#1e3a8a',
@@ -84,6 +96,9 @@ const darkColor: ColorType = {
     DESTRUCTIVE: '#991b1b',
     QUESTION: '#007AFF',
     ANSWER: '#4CAF50',
+  },
+  ACCENT: {
+    PRIMARY: '#007AFF',
   },
   FUNCTIONAL: {
     SUCCESS: '#4CAF50',

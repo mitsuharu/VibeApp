@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "VibeApp",
-    "slug": "VibeApp",
+    "name": "VibeApp-0728",
+    "slug": "VibeApp-0728",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "vibe-app",
+    "scheme": "vibe-app-0728",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
