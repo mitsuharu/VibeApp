@@ -15,7 +15,6 @@
 - 同僚のパスワードに関しては、認証を行わず、一律で正常処理で認証してください
 - 本人の今日のログインキーは、6桁の数字を乱数で表示してください
 
-
 ## コーディング
 
 作成言語は React Native + Expo です。新しいパッケージを追加する場合は、Expo をサポートしているパッケージのみとしてください。iOSとAndroidに対応して、タブレットにも対応してください。
@@ -25,3 +24,5 @@
 また、簡単なコンポーネントに関しては、すでにプロジェクトに導入済みの https://github.com/mitsuharu/react-native-components-plus を利用してください。
 
 expo router で実装してください。hooksを実装する場合は、src/hooksに実装して、適切にimportしてしてください。ほか、必要であれば、src/types や src/utils にファイルを追加してください。
+
+テキスト入力でキーボードを利用する際は、KeyboardAvoidingView https://reactnative.dev/docs/keyboardavoidingview などを利用して、キーボードで入力対象のコンポーネントが隠れないようにして下さい。
