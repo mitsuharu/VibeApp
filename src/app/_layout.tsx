@@ -1,9 +1,8 @@
-import { Stack, useRouter } from 'expo-router'
+import { Stack } from 'expo-router'
 import { useColorScheme } from 'react-native'
 import { COLOR } from '@/constants/Colors'
 
 export default function RootLayout() {
-  const router = useRouter()
   const colorScheme = useColorScheme()
 
   return (
@@ -20,6 +19,10 @@ export default function RootLayout() {
     >
       <Stack.Screen
         name='index'
+        options={{
+          title: 'プレゼン資料投げ輪ゲーム',
+          headerShown: true,
+        }}
       />
     </Stack>
   )
