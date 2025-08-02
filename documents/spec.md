@@ -28,3 +28,5 @@
 expo router で実装してください。hooksを実装する場合は、src/hooksに実装して、適切にimportしてしてください。ほか、必要であれば、src/types や src/utils にファイルを追加してください。
 
 テキスト入力でキーボードを利用する際は、KeyboardAvoidingView https://reactnative.dev/docs/keyboardavoidingview などを利用して、キーボードで入力対象のコンポーネントが隠れないようにして下さい。
+
+アプリ機能として、LLMを利用した質問回答を実装する場合は、src/hooks/useAssistant.ts に定義された useAssistant を利用して、質問に対する回答を取得してください。useAssistant を無理に組み込む利用する必要はありません。
