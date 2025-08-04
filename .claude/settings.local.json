@@ -1,6 +1,16 @@
 {
   "permissions": {
-    "allow": ["Bash(npm run lint)", "Bash(yarn add:*)", "Bash(yarn lint)"],
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(yarn add:*)",
+      "Bash(yarn lint)",
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(yarn run lint)",
+      "Bash(yarn start:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(timeout:*)"
+    ],
     "deny": [
       "Bash(sudo:*)",
       "Bash(rm:*)",

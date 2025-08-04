@@ -1,6 +1,7 @@
-import { styleType } from '@mitsuharu/react-native-components-plus'
-import { useState } from 'react'
+import { useRouter } from 'expo-router'
+import { useEffect } from 'react'
 import {
+  ActivityIndicator,
   StyleSheet,
   Text,
   type TextStyle,
@@ -8,55 +9,73 @@ import {
   View,
   type ViewStyle,
 } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
 import { makeStyles } from 'react-native-swag-styles'
 import { COLOR } from '@/constants/Colors'
 
-type Props = {
-  text: String
-}
-
-type ComponentProps = Props & {
-  text: String
-}
-
-const Component: React.FC<ComponentProps> = ({
-  text
-}) => {
+const IndexScreen: React.FC = () => {
+  const router = useRouter()
   const styles = useStyles()
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-    </View>
-  )
-}
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.replace('/country-selection')
+    }, 1500)
 
-const Container: React.FC<Props> = (props) => {
-  const [text, setText] = useState<string>('hello world')
+    return () => clearTimeout(timer)
+  }, [router])
 
   return (
-    <Component
-      {...props}
-      {...{
-        text
-      }}
-    />
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
+        <Text style={styles.title}>🗾 旅行プランアプリ</Text>
+        <Text style={styles.subtitle}>海外旅行のプランを半自動で作成</Text>
+        <ActivityIndicator
+          size='large'
+          color={COLOR(useColorScheme()).BACKGROUND.EMPHASIZE}
+          style={styles.loader}
+        />
+        <Text style={styles.loadingText}>アプリを起動しています...</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 
 const useStyles = makeStyles(useColorScheme, (colorScheme) => {
   const styles = StyleSheet.create({
-    container: styleType<ViewStyle>({
+    safeArea: {
       flex: 1,
-      padding: 16,
-      backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
-    }),
-    text: styleType<TextStyle>({
+      backgroundColor: COLOR(colorScheme).BACKGROUND.PRIMARY,
+    } as ViewStyle,
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: 20,
+    } as ViewStyle,
+    title: {
+      fontSize: 32,
+      fontWeight: 'bold',
       color: COLOR(colorScheme).TEXT.PRIMARY,
+      marginBottom: 12,
+      textAlign: 'center',
+    } as TextStyle,
+    subtitle: {
       fontSize: 16,
-    }),
+      color: COLOR(colorScheme).TEXT.SECONDARY,
+      textAlign: 'center',
+      marginBottom: 60,
+    } as TextStyle,
+    loader: {
+      marginBottom: 20,
+    } as ViewStyle,
+    loadingText: {
+      fontSize: 14,
+      color: COLOR(colorScheme).TEXT.SECONDARY,
+      textAlign: 'center',
+    } as TextStyle,
   })
   return styles
 })
 
-export default Container
+export default IndexScreen

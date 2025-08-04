@@ -24,14 +24,23 @@ export const useAssistant = (): AssistantType => {
       try {
         setStatus('loading')
 
-        // https://platform.openai.com/docs/guides/text?api-mode=responses
-        const result = await client.responses.create({
-          model: 'gpt-4.1',
-          input: input,
+        // https://platform.openai.com/docs/guides/text-generation
+        const result = await client.chat.completions.create({
+          model: 'gpt-4',
+          messages: [
+            {
+              role: 'user',
+              content: input,
+            },
+          ],
+          max_tokens: 2000,
+          temperature: 0.7,
         })
 
         setStatus('success')
-        setResponse(result.output_text)
+        setResponse(
+          result.choices[0]?.message?.content || 'プランの生成に失敗しました。',
+        )
       } catch (error) {
         // https://github.com/openai/openai-node?tab=readme-ov-file#handling-errors
         console.warn(error)
