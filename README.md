@@ -86,4 +86,9 @@ You can start developing by editing the files inside the **app** directory. This
 - **UI**: @mitsuharu/react-native-components-plus
 - **スタイリング**: react-native-swag-styles
 - **AI統合**: OpenAI GPT-4 API
-- **対応プラットフォーム**: iOS、Android、Web、タブレット対応
+- **対応プラットフォーム**: iOS、Android、タブレット対応
+- **モバイル最適化**: 
+  - 44px以上のタップターゲット
+  - 大きなボタンサイズ（minHeight: 52-80px）
+  - スムーズなスクロール
+  - レスポンシブデザイン

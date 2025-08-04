@@ -274,6 +274,7 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as ViewStyle,
     scrollContent: {
       padding: 20,
+      paddingBottom: 40,
     } as ViewStyle,
     loadingContainer: {
       flex: 1,
@@ -314,9 +315,10 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as TextStyle,
     retryButton: {
       backgroundColor: COLOR(colorScheme).FUNCTIONAL.ERROR,
-      paddingHorizontal: 20,
-      paddingVertical: 12,
-      borderRadius: 8,
+      paddingHorizontal: 24,
+      paddingVertical: 16,
+      borderRadius: 12,
+      minHeight: 52,
     } as ViewStyle,
     retryButtonText: {
       color: COLOR(colorScheme).TEXT.EMPHASIZE,
@@ -351,7 +353,7 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as TextStyle,
     planContent: {
       padding: 20,
-      maxHeight: 400,
+      maxHeight: 500,
     } as ViewStyle,
     planText: {
       fontSize: 15,
@@ -367,8 +369,10 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     regenerateButton: {
       flex: 1,
       backgroundColor: COLOR(colorScheme).BACKGROUND.EMPHASIZE,
-      paddingVertical: 12,
-      borderRadius: 8,
+      paddingVertical: 16,
+      paddingHorizontal: 20,
+      borderRadius: 12,
+      minHeight: 52,
     } as ViewStyle,
     regenerateButtonText: {
       color: COLOR(colorScheme).TEXT.EMPHASIZE,
@@ -380,8 +384,10 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
       backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
       borderWidth: 1,
       borderColor: COLOR(colorScheme).BORDER.PRIMARY,
-      paddingVertical: 12,
-      borderRadius: 8,
+      paddingVertical: 16,
+      paddingHorizontal: 20,
+      borderRadius: 12,
+      minHeight: 52,
     } as ViewStyle,
     startOverButtonText: {
       color: COLOR(colorScheme).TEXT.PRIMARY,

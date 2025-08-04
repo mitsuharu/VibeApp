@@ -164,9 +164,10 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
       backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
       borderWidth: 1,
       borderColor: COLOR(colorScheme).BORDER.PRIMARY,
-      paddingHorizontal: 16,
-      paddingVertical: 8,
-      borderRadius: 6,
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+      borderRadius: 8,
+      minHeight: 44,
     } as ViewStyle,
     backButtonText: {
       color: COLOR(colorScheme).TEXT.PRIMARY,
@@ -177,6 +178,7 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as ViewStyle,
     scrollContent: {
       padding: 20,
+      paddingBottom: 40,
     } as ViewStyle,
     title: {
       fontSize: 24,
@@ -195,10 +197,11 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
       backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
       borderWidth: 1,
       borderColor: COLOR(colorScheme).BORDER.PRIMARY,
-      paddingHorizontal: 20,
-      paddingVertical: 16,
-      borderRadius: 12,
+      paddingHorizontal: 24,
+      paddingVertical: 20,
+      borderRadius: 16,
       width: '100%',
+      minHeight: 80,
     } as ViewStyle,
     selectedPurposeButton: {
       backgroundColor: COLOR(colorScheme).BACKGROUND.EMPHASIZE,
@@ -250,8 +253,10 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as TextStyle,
     nextButton: {
       backgroundColor: COLOR(colorScheme).BACKGROUND.EMPHASIZE,
-      paddingVertical: 16,
-      borderRadius: 8,
+      paddingVertical: 20,
+      paddingHorizontal: 24,
+      borderRadius: 12,
+      minHeight: 56,
     } as ViewStyle,
     nextButtonText: {
       color: COLOR(colorScheme).TEXT.EMPHASIZE,

@@ -111,6 +111,7 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as ViewStyle,
     scrollContent: {
       padding: 20,
+      paddingBottom: 40,
     } as ViewStyle,
     title: {
       fontSize: 24,
@@ -138,10 +139,11 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
       backgroundColor: COLOR(colorScheme).BACKGROUND.SECONDARY,
       borderWidth: 1,
       borderColor: COLOR(colorScheme).BORDER.PRIMARY,
-      paddingHorizontal: 16,
-      paddingVertical: 12,
-      borderRadius: 8,
-      minWidth: 120,
+      paddingHorizontal: 20,
+      paddingVertical: 16,
+      borderRadius: 12,
+      minWidth: 140,
+      minHeight: 60,
     } as ViewStyle,
     selectedCountryButton: {
       backgroundColor: COLOR(colorScheme).BACKGROUND.EMPHASIZE,
@@ -177,8 +179,10 @@ const useStyles = makeStyles(useColorScheme, (colorScheme) => {
     } as TextStyle,
     nextButton: {
       backgroundColor: COLOR(colorScheme).BACKGROUND.EMPHASIZE,
-      paddingVertical: 16,
-      borderRadius: 8,
+      paddingVertical: 20,
+      paddingHorizontal: 24,
+      borderRadius: 12,
+      minHeight: 56,
     } as ViewStyle,
     nextButtonText: {
       color: COLOR(colorScheme).TEXT.EMPHASIZE,
